@@ -21,12 +21,13 @@ public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository;
     @Transactional
     @Override
-    public void signUp(MemberSignUpDto memberSignUpDto) {
+    public Long signUp(MemberSignUpDto memberSignUpDto) {
         Member member = memberSignUpDto.toEntity();
         if(memberRepository.findByNickname(member.getNickname()).isPresent()) {
             throw new MemberException(ALREADY_EXIST_USERNAME);
         }
-        memberRepository.save(member);
+        Member save = memberRepository.save(member);
+        return save.getId();
 
     }
 

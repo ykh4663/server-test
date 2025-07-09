@@ -23,8 +23,8 @@ public class MemberController {
     @PostMapping
     @Operation(summary = "회원 가입")
     @ResponseStatus(HttpStatus.CREATED)
-    public void signup(@Valid @RequestBody MemberSignUpDto dto) {
-        memberService.signUp(dto);
+    public Long signup(@Valid @RequestBody MemberSignUpDto dto) {
+        return memberService.signUp(dto);
     }
 
     @PutMapping("/{id}")

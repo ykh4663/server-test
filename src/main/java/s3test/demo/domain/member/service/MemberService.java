@@ -5,7 +5,7 @@ import s3test.demo.domain.member.dto.MemberSignUpDto;
 import s3test.demo.domain.member.dto.MemberUpdateDto;
 
 public interface MemberService {
-    void signUp(MemberSignUpDto memberSignUpDto);
+    Long signUp(MemberSignUpDto memberSignUpDto);
 
     void update(Long memberId, MemberUpdateDto memberUpdateDto);
 

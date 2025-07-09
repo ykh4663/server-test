@@ -18,27 +18,11 @@ import io.swagger.v3.oas.models.OpenAPI;
 @OpenAPIDefinition(
         info = @Info(
                 title = "Spring Study",
-                description = """
-            
-            """,
-                version = "1.0v"
-        ),
-        servers = {
-                @Server(url = "http://localhost:8080", description = "로컬 서버")
-        }
+                version = "1.0v",
+                description = "회원 관리 API"
+        )
 )
 @Configuration
 public class SwaggerConfig {
 
-    @Bean
-    public OpenAPI openAPI() {
-
-        return new OpenAPI()
-                .servers(List.of(
-                                new io.swagger.v3.oas.models.servers.Server()
-                                        .url("http://localhost:8080")
-                                        .description("로컬 서버")
-                        )
-                );
-    }
 }
